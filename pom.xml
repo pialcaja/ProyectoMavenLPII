@@ -44,6 +44,12 @@
 		<artifactId>maven-jpa-entity-generator-plugin</artifactId>
 		<version>0.99.9</version>
 	</dependency>
+	<!-- PARA HACER LISTADOS -->
+	<dependency>
+		<groupId>jstl</groupId>
+		<artifactId>jstl</artifactId>
+		<version>1.2</version>
+	</dependency>
 
   </dependencies>
   <build>

@@ -14,19 +14,25 @@ public class TblClienteImp implements ICliente{
 	@Override
 	public void RegistrarCliente(TblCliente cliente) {
 
-		// establecemo conexion con la unidad de persistencia...
+		// ESTABLECEMOS CONEXION CON LA UNIDAD DE PERSISTENCIA
 		EntityManagerFactory fabri = Persistence.createEntityManagerFactory("ProyectoMavenLPII");
-		// permite gestionar entidades..
+		
+		// PERMITE GESTIONAR ENTIDADES
 		EntityManager eman = fabri.createEntityManager();
-		// iniciar transaccion...
+		
+		// INICIAR TRANSACCION
 		eman.getTransaction().begin();
-		// registramos
+		
+		// REGISTRAMOS
 		eman.persist(cliente);
-		// emitimos mensaje por pantalla
+		
+		// EMITIMOS MENSAJE POR PANTALLA
 		System.out.println("cliente registrado en la base de datos");
-		// confirmamos
+		
+		// CONFIRMAMOS
 		eman.getTransaction().commit();
-		// cerramos la transaccion...
+		
+		// CERRAMOS LA TRANSACCION
 		eman.close();
 		
 	}
@@ -51,8 +57,28 @@ public class TblClienteImp implements ICliente{
 
 	@Override
 	public List<TblCliente> ListarClientes() {
-		// TODO Auto-generated method stub
-		return null;
+
+		// ESTABLECEMOS LA CONEXION CON LA UNIDAD DE PERSISTENCIA
+		EntityManagerFactory fabri = Persistence.createEntityManagerFactory("ProyectoMavenLPII");
+		
+		// GESTIONAMOS LAS ENTIDADES
+		EntityManager em = fabri.createEntityManager();
+		
+		// INICIAMOS LA TRANSACCION
+		em.getTransaction().begin();
+		
+		// RECUPERAMOS LA DATA DE LA BD
+		List<TblCliente> listado = em.createQuery("select c from TblCliente c", TblCliente.class).getResultList();
+		
+		// CONFIRMAMOS LA TRANSACCION
+		em.getTransaction().commit();
+		
+		// CERRAMOS
+		em.close();
+		
+		// RETORNAMOS EL LISTADO
+		return listado;
+		
 	}
 
 }

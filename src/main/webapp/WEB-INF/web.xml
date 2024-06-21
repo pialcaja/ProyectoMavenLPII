@@ -4,4 +4,14 @@
 
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
+  <servlet>
+  	<servlet-name>ControladorCliente</servlet-name>
+  	<display-name>ControladorCliente</display-name>
+  	<description></description>
+  	<servlet-class>controlador.ControladorCliente</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ControladorCliente</servlet-name>
+  	<url-pattern>/ControladorCliente</url-pattern>
+  </servlet-mapping>
 </web-app>
